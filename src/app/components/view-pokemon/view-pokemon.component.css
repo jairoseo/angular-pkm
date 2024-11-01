@@ -1,0 +1,93 @@
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Ajusta según tus necesidades */
+    margin: 0 auto;
+}
+
+.loader-container {
+    margin-top: 10px; /* Ajusta el espacio entre el campo y el loader */
+    display: flex;
+    justify-content: center;
+}
+
+.pokemon {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50% );
+    border-radius: 50%;
+    border: 8px solid black;
+    animation: spin 1s linear infinite;
+}
+
+.pokemon::before {
+content: '';
+position: absolute;
+height: 8px;
+width: 100px;
+background: black;
+top: 50px;
+transform: translatey(-50%);
+}
+
+.pokemon::after {
+content: '';
+position: absolute;
+height: 38px;
+width: 38px;
+border-radius: 50%;
+background: white;
+top: 50px;
+left: 50px;
+transform: translate(-50%, -50%);
+box-shadow: inset 0 0 0 8px black, inset 0 0 0 10px white, inset 0 0 0 12px black;
+
+}
+/* Spin Animation */
+@keyframes spin {
+from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+h1{
+    text-transform: capitalize;
+}
+
+.linear-wipe {
+    text-align: center;
+    
+    background: linear-gradient(to right, #FFF 20%, rgb(255, 0, 0) 40%, rgb(255, 0, 0) 60%, #FFF 80%);
+    background-size: 200% auto;
+    
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback para otros navegadores */
+    
+    animation: shine 1s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.shaking {
+    animation: tilt-shaking 0.5s ease-in-out infinite;
+}
+@keyframes tilt-shaking {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(5deg); }
+    50% { transform: translate(0, 0) rotate(0eg); }
+    75% { transform: translate(-5px, 5px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+

@@ -1,0 +1,20 @@
+<div class="centered-container">
+    <p-toast />
+    <br>
+    <div class="p-inputgroup full-width">
+        <span class="p-inputgroup-addon">
+            <label for="pokemonName">Ingrese el nombre de un Pokémon</label>
+        </span>
+        <input pInputText id="pokemonName" type="text" #pokemonName (input)="updateName(pokemonName.value)" (keydown.enter)="loadPokemon()">
+        <button pButton type="button" icon="pi pi-search" (click)="loadPokemon()"></button>
+    </div>    
+    @if(loading()){
+        <div class="loader-container">
+            <span class="pokemon"></span>
+        </div>
+    }
+    @if(this.animationArray().length === 2 && this.imagenActual()) {
+        <h1 class="linear-wipe">{{pokemonData().species.name}}</h1>
+        <img [src]="imagenActual()" alt="Imagen de animación" height="150" width="150" class="shaking">
+    }
+</div>
